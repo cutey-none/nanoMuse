@@ -1230,6 +1230,12 @@
     <string name="nm_remote_no_answer">%1$s wurde ohne Antwort beendet.</string>
     <string name="nm_remote_failed">%1$s hat nicht geantwortet: %2$s</string>
     <string name="nm_remote_offline">%1$s ist offline.</string>
+    <string name="nm_remote_offline_connected">%1$s ist gerade nicht online. Tippe auf × über dem Eingabefeld, um stattdessen an dieses Telefon zu senden.</string>
+    <string name="nm_remote_target_gone">%1$s gehört nicht mehr zu diesem Konto, daher sendet dieser Chat wieder an dieses Telefon. Sende die Nachricht noch einmal, um hier zu fragen.</string>
+    <string name="nm_device_target_to">An %1$s</string>
+    <string name="nm_device_target_describe">Nachrichten in diesem Chat gehen an %1$s. Ändern</string>
+    <string name="nm_device_target_this_phone">Dieses Telefon</string>
+    <string name="nm_device_target_back">Wieder an dieses Telefon senden</string>
     <string name="nm_remote_chat_busy">Warte, bis diese Unterhaltung fertig ist, bevor du eine Geräteaufgabe sendest.</string>
 
     <string name="nm_reply_unread">Ungelesene Antwort</string>

@@ -1226,6 +1226,12 @@
     <string name="nm_remote_no_answer">%1$s は応答なしで終了しました。</string>
     <string name="nm_remote_failed">%1$s から応答がありません：%2$s</string>
     <string name="nm_remote_offline">%1$s はオフラインです。</string>
+    <string name="nm_remote_offline_connected">%1$s は今オンラインではありません。このスマートフォンに送るには、入力欄の上の × をタップしてください。</string>
+    <string name="nm_remote_target_gone">%1$s はこのアカウントにもうないため、このチャットはこのスマートフォンに送るように戻りました。ここで聞くにはもう一度送ってください。</string>
+    <string name="nm_device_target_to">%1$s へ</string>
+    <string name="nm_device_target_describe">このチャットのメッセージは %1$s に送られます。変更</string>
+    <string name="nm_device_target_this_phone">このスマートフォン</string>
+    <string name="nm_device_target_back">このスマートフォンに戻す</string>
     <string name="nm_remote_chat_busy">この会話の処理が終わってからデバイスにタスクを送信してください。</string>
 
     <string name="nm_reply_unread">未読の返信</string>

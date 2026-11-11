@@ -1231,6 +1231,12 @@
     <string name="nm_remote_no_answer">%1$s a terminé sans réponse.</string>
     <string name="nm_remote_failed">%1$s n’a pas répondu : %2$s</string>
     <string name="nm_remote_offline">%1$s est hors ligne.</string>
+    <string name="nm_remote_offline_connected">%1$s n’est pas en ligne pour le moment. Touche × au-dessus du champ de message pour envoyer à ce téléphone.</string>
+    <string name="nm_remote_target_gone">%1$s n’est plus sur ce compte, cette discussion envoie donc de nouveau à ce téléphone. Renvoie le message pour demander ici.</string>
+    <string name="nm_device_target_to">À %1$s</string>
+    <string name="nm_device_target_describe">Les messages de cette discussion vont à %1$s. Changer</string>
+    <string name="nm_device_target_this_phone">Ce téléphone</string>
+    <string name="nm_device_target_back">Envoyer de nouveau à ce téléphone</string>
     <string name="nm_remote_chat_busy">Attendez la fin de cette conversation avant d’envoyer une tâche à un appareil.</string>
 
     <string name="nm_reply_unread">Réponse non lue</string>

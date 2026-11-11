@@ -1226,6 +1226,12 @@
     <string name="nm_remote_no_answer">%1$s ทำงานเสร็จโดยไม่มีคำตอบ</string>
     <string name="nm_remote_failed">%1$s ไม่ตอบกลับ: %2$s</string>
     <string name="nm_remote_offline">%1$s ออฟไลน์อยู่</string>
+    <string name="nm_remote_offline_connected">%1$s ไม่ได้ออนไลน์อยู่ตอนนี้ แตะ × เหนือช่องข้อความเพื่อส่งไปที่โทรศัพท์เครื่องนี้แทน</string>
+    <string name="nm_remote_target_gone">%1$s ไม่ได้อยู่ในบัญชีนี้แล้ว แชตนี้จึงกลับมาส่งไปที่โทรศัพท์เครื่องนี้ ส่งข้อความอีกครั้งเพื่อถามที่นี่</string>
+    <string name="nm_device_target_to">ถึง %1$s</string>
+    <string name="nm_device_target_describe">ข้อความในแชตนี้จะส่งไปที่ %1$s เปลี่ยน</string>
+    <string name="nm_device_target_this_phone">โทรศัพท์เครื่องนี้</string>
+    <string name="nm_device_target_back">กลับมาส่งไปที่โทรศัพท์เครื่องนี้</string>
     <string name="nm_remote_chat_busy">รอให้การสนทนานี้ทำงานเสร็จก่อนส่งงานไปยังอุปกรณ์</string>
 
     <string name="nm_reply_unread">คำตอบที่ยังไม่ได้อ่าน</string>

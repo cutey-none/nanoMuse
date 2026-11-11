@@ -57,7 +57,7 @@ class RemoteChatBridgeTest {
         val host = Host()
         var created = 0
         val task = Task()
-        val bridge = RemoteChatBridge(this, host) { d, text, _ ->
+        val bridge = RemoteChatBridge(this, host) { d, text, _, _ ->
             created++; assertEquals("desk", d.id); assertEquals("hello", text); task
         }
         assertFalse(bridge.send("ordinary message", listOf(device), false, false))
@@ -80,7 +80,7 @@ class RemoteChatBridgeTest {
         for (kind in listOf("offline", "attachments", "busy")) {
             // The actual composer clears its field immediately before invoking sendMessage.
             val host = Host().apply { running = kind == "busy"; draft = "" }
-            val bridge = RemoteChatBridge(this, host) { _, _, _ -> error("must not start") }
+            val bridge = RemoteChatBridge(this, host) { _, _, _, _ -> error("must not start") }
             assertTrue(bridge.send("@Desk hello", listOf(device.copy(online = kind != "offline")), kind == "attachments", false))
             assertEquals("@Desk hello", host.draft)
             assertEquals(0, host.saved)
@@ -91,7 +91,7 @@ class RemoteChatBridgeTest {
     @Test fun `cancelling a running task persists once and releases the conversation`() = runTest {
         val host = Host()
         val task = Task(wait = true)
-        val bridge = RemoteChatBridge(this, host) { _, _, _ -> task }
+        val bridge = RemoteChatBridge(this, host) { _, _, _, _ -> task }
         bridge.send("@Desk hello", listOf(device), false, false)
         assertEquals(1, host.tracked)
         assertTrue(bridge.cancel())
@@ -105,12 +105,71 @@ class RemoteChatBridgeTest {
 
     @Test fun `failed persistence releases tracking without marking an answer unread`() = runTest {
         val host = Host().apply { failSave = true }
-        val bridge = RemoteChatBridge(this, host) { _, _, _ -> Task() }
+        val bridge = RemoteChatBridge(this, host) { _, _, _, _ -> Task() }
         bridge.send("@Desk hello", listOf(device), false, false)
         runCurrent()
         assertEquals(0, host.saved)
         assertEquals(listOf(false), host.completions)
         assertEquals(0, host.tracked)
         assertFalse(host.busy)
+    }
+
+    @Test fun `a mention connects the chat and later messages go there without it`() = runTest {
+        val host = Host()
+        val sent = mutableListOf<Pair<String, String?>>()
+        val bridge = RemoteChatBridge(this, host) { _, text, _, conversation -> sent += text to conversation; Task() }
+        assertTrue(bridge.send("@Desk hello", listOf(device), false, false))
+        runCurrent()
+        assertEquals("desk", bridge.target.value?.id)
+        assertTrue(bridge.send("and the second one?", listOf(device), false, false))
+        runCurrent()
+        assertEquals(listOf("hello", "and the second one?"), sent.map { it.first })
+        val conversation = sent.first().second
+        assertNotNull(conversation)
+        assertEquals("both turns continue one conversation there", conversation, sent.last().second)
+        bridge.disconnect()
+        assertFalse(bridge.send("now here", listOf(device), false, false))
+    }
+
+    @Test fun `a bare mention only connects`() = runTest {
+        val host = Host()
+        val bridge = RemoteChatBridge(this, host) { _, _, _, _ -> error("must not start") }
+        assertTrue(bridge.send("@Desk", listOf(device), false, false))
+        assertEquals("desk", bridge.target.value?.id)
+        assertEquals("", host.draft)
+        assertEquals(0, host.userCount)
+    }
+
+    @Test fun `a connected chat never falls back to this phone`() = runTest {
+        val host = Host().apply { draft = "" }
+        val bridge = RemoteChatBridge(this, host) { _, _, _, _ -> error("must not start") }
+        bridge.connect(device)
+        assertTrue(bridge.send("hello", listOf(device.copy(online = false)), false, false))
+        assertEquals(listOf(RemoteChatBridge.Issue.OFFLINE_CONNECTED), host.errors)
+        assertEquals("hello", host.draft)
+        assertEquals("desk", bridge.target.value?.id)
+        // the list not loaded yet: offline, still connected
+        assertTrue(bridge.send("hello", emptyList(), false, false))
+        assertEquals("desk", bridge.target.value?.id)
+        // gone from the account: disconnected, said once
+        val other = device.copy(id = "laptop", name = "Laptop")
+        assertTrue(bridge.send("hello", listOf(other), false, false))
+        assertEquals(RemoteChatBridge.Issue.GONE, host.errors.last())
+        assertNull(bridge.target.value)
+    }
+
+    @Test fun `the connection is kept once the chat is saved, and switching devices starts a new conversation`() = runTest {
+        val store = MemoryDeviceTargetStore()
+        val host = Host()
+        val bridge = RemoteChatBridge(this, host, store) { _, _, _, _ -> Task() }
+        bridge.send("@Desk hello", listOf(device), false, false)
+        runCurrent()
+        val kept = store.get("session")
+        assertEquals("desk", kept?.id)
+        val first = kept!!.conversation
+        bridge.connect(device.copy(name = "Desk 2"))
+        assertEquals("a rename keeps the conversation", first, bridge.target.value?.conversation)
+        bridge.connect(device.copy(id = "laptop", name = "Laptop"))
+        assertNotEquals(first, bridge.target.value?.conversation)
     }
 }

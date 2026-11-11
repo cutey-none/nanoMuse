@@ -1226,6 +1226,12 @@
     <string name="nm_remote_no_answer">%1$s selesai tanpa jawaban.</string>
     <string name="nm_remote_failed">%1$s tidak menjawab: %2$s</string>
     <string name="nm_remote_offline">%1$s sedang offline.</string>
+    <string name="nm_remote_offline_connected">%1$s sedang tidak online. Ketuk × di atas kotak pesan untuk mengirim ke ponsel ini.</string>
+    <string name="nm_remote_target_gone">%1$s tidak lagi ada di akun ini, jadi chat ini kembali mengirim ke ponsel ini. Kirim pesan sekali lagi untuk bertanya di sini.</string>
+    <string name="nm_device_target_to">Ke %1$s</string>
+    <string name="nm_device_target_describe">Pesan di chat ini dikirim ke %1$s. Ubah</string>
+    <string name="nm_device_target_this_phone">Ponsel ini</string>
+    <string name="nm_device_target_back">Kirim ke ponsel ini lagi</string>
     <string name="nm_remote_chat_busy">Tunggu percakapan ini selesai sebelum mengirim tugas ke perangkat.</string>
 
     <string name="nm_reply_unread">Balasan belum dibaca</string>

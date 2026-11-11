@@ -1230,6 +1230,12 @@
     <string name="nm_remote_no_answer">Natapos ang %1$s nang walang sagot.</string>
     <string name="nm_remote_failed">Hindi sumagot ang %1$s: %2$s</string>
     <string name="nm_remote_offline">Offline ang %1$s.</string>
+    <string name="nm_remote_offline_connected">Hindi online ang %1$s ngayon. I-tap ang × sa itaas ng message box para ipadala sa phone na ito.</string>
+    <string name="nm_remote_target_gone">Wala na sa account na ito ang %1$s, kaya sa phone na ito ulit nagpapadala ang chat na ito. Ipadala ulit ang mensahe para magtanong dito.</string>
+    <string name="nm_device_target_to">Sa %1$s</string>
+    <string name="nm_device_target_describe">Napupunta sa %1$s ang mga mensahe sa chat na ito. Palitan</string>
+    <string name="nm_device_target_this_phone">Ang phone na ito</string>
+    <string name="nm_device_target_back">Ipadala ulit sa phone na ito</string>
     <string name="nm_remote_chat_busy">Hintaying matapos ang usapang ito bago magpadala ng gawain sa device.</string>
 
     <string name="nm_reply_unread">Hindi pa nababasang sagot</string>

@@ -1230,6 +1230,12 @@
     <string name="nm_remote_no_answer">%1$s yanıt vermeden tamamlandı.</string>
     <string name="nm_remote_failed">%1$s yanıt vermedi: %2$s</string>
     <string name="nm_remote_offline">%1$s çevrimdışı.</string>
+    <string name="nm_remote_offline_connected">%1$s şu anda çevrimiçi değil. Bu telefona göndermek için mesaj kutusunun üstündeki × simgesine dokun.</string>
+    <string name="nm_remote_target_gone">%1$s artık bu hesapta değil, bu yüzden bu sohbet yeniden bu telefona gönderiyor. Burada sormak için mesajı bir kez daha gönder.</string>
+    <string name="nm_device_target_to">%1$s cihazına</string>
+    <string name="nm_device_target_describe">Bu sohbetteki mesajlar %1$s cihazına gider. Değiştir</string>
+    <string name="nm_device_target_this_phone">Bu telefon</string>
+    <string name="nm_device_target_back">Yeniden bu telefona gönder</string>
     <string name="nm_remote_chat_busy">Bir cihaza görev göndermeden önce bu konuşmanın bitmesini bekleyin.</string>
 
     <string name="nm_reply_unread">Okunmamış yanıt</string>

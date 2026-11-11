@@ -1226,6 +1226,12 @@
     <string name="nm_remote_no_answer">%1$s selesai tanpa jawapan.</string>
     <string name="nm_remote_failed">%1$s tidak menjawab: %2$s</string>
     <string name="nm_remote_offline">%1$s di luar talian.</string>
+    <string name="nm_remote_offline_connected">%1$s tidak dalam talian sekarang. Ketik × di atas kotak mesej untuk menghantar ke telefon ini.</string>
+    <string name="nm_remote_target_gone">%1$s tiada lagi dalam akaun ini, jadi sembang ini menghantar ke telefon ini semula. Hantar mesej sekali lagi untuk bertanya di sini.</string>
+    <string name="nm_device_target_to">Kepada %1$s</string>
+    <string name="nm_device_target_describe">Mesej dalam sembang ini pergi ke %1$s. Tukar</string>
+    <string name="nm_device_target_this_phone">Telefon ini</string>
+    <string name="nm_device_target_back">Hantar ke telefon ini semula</string>
     <string name="nm_remote_chat_busy">Tunggu perbualan ini selesai sebelum menghantar tugas kepada peranti.</string>
 
     <string name="nm_reply_unread">Balasan belum dibaca</string>

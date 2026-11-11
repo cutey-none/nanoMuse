@@ -1234,6 +1234,12 @@
     <string name="nm_remote_no_answer">%1$s a terminat fără răspuns.</string>
     <string name="nm_remote_failed">%1$s nu a răspuns: %2$s</string>
     <string name="nm_remote_offline">%1$s este offline.</string>
+    <string name="nm_remote_offline_connected">%1$s nu este online acum. Atinge × deasupra casetei de mesaj ca să trimiți la acest telefon.</string>
+    <string name="nm_remote_target_gone">%1$s nu mai este în acest cont, așa că această conversație trimite din nou la acest telefon. Trimite mesajul încă o dată ca să întrebi aici.</string>
+    <string name="nm_device_target_to">Către %1$s</string>
+    <string name="nm_device_target_describe">Mesajele din această conversație merg la %1$s. Schimbă</string>
+    <string name="nm_device_target_this_phone">Acest telefon</string>
+    <string name="nm_device_target_back">Trimite din nou la acest telefon</string>
     <string name="nm_remote_chat_busy">Așteaptă încheierea acestei conversații înainte să trimiți o sarcină unui dispozitiv.</string>
 
     <string name="nm_reply_unread">Răspuns necitit</string>

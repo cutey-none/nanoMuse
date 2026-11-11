@@ -26,6 +26,7 @@ class RemoteDeviceTaskTest {
             assertEquals("pt-BR", args.getString("language"))
             assertTrue(args.getBoolean("stream"))
             assertEquals("hello", args.getString("text"))
+            assertFalse("no conversation unless the chat is connected", args.has("conversation"))
             event(JSONObject().put("stage", "text").put("text", "O"))
             event(JSONObject().put("stage", "text").put("text", "Olá"))
             JSONObject().put("text", "Olá")
@@ -97,5 +98,12 @@ class RemoteDeviceTaskTest {
             assertEquals("original timeout", error.message)
         }
         assertEquals(listOf("timed-out-call"), stops)
+    }
+
+    @Test fun `a connected chat names its conversation on the device`() = runTest {
+        RemoteDeviceTask(device, "hello", "en", "call", "chat-1").run(call = { _, _, _, args, _ ->
+            assertEquals("chat-1", args.getString("conversation"))
+            JSONObject().put("text", "ok")
+        }, onEvent = {}, stop = {})
     }
 }

@@ -14,8 +14,8 @@ import kotlinx.coroutines.runInterruptible
 import org.json.JSONObject
 
 /** Owns a remote reply, not a local agent run. All UI callbacks run in the caller's scope. */
-class RemoteTaskChat(private val context: Context, private val device: Device, text: String, val callId: String) : RemoteChatBridge.Task {
-    private val task = RemoteDeviceTask(device, text, Computers.uiLanguage(context), callId)
+class RemoteTaskChat(private val context: Context, private val device: Device, text: String, val callId: String, conversation: String? = null) : RemoteChatBridge.Task {
+    private val task = RemoteDeviceTask(device, text, Computers.uiLanguage(context), callId, conversation)
     private val reply = RemoteTaskReply(device.id)
     private var ended = false
     override var failed = false

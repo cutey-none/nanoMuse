@@ -6323,14 +6323,17 @@ class ChatViewModel(
     }
 
     // nanoMuse: only the adapter touches upstream state; the lifecycle lives in RemoteChatBridge.
-    private val nmRemoteBridge: io.github.nanomuse.sync.RemoteChatBridge by lazy {
+    internal val nmRemoteBridge: io.github.nanomuse.sync.RemoteChatBridge by lazy { // nanoMuse: internal, the chip above the composer reads and sets the chat's device (#907)
         val host = object : io.github.nanomuse.sync.RemoteChatBridge.Host {
             override val busy: Boolean get() = _isStreaming.value
+            override val savedSession: String? get() = realSessionId.ifEmpty { null }
             override fun setBusy(value: Boolean) { _isStreaming.value = value }
             override fun error(issue: io.github.nanomuse.sync.RemoteChatBridge.Issue, device: String) {
                 val resource = when (issue) {
                     io.github.nanomuse.sync.RemoteChatBridge.Issue.AMBIGUOUS -> R.string.nm_remote_ambiguous
                     io.github.nanomuse.sync.RemoteChatBridge.Issue.OFFLINE -> R.string.nm_remote_offline
+                    io.github.nanomuse.sync.RemoteChatBridge.Issue.OFFLINE_CONNECTED -> R.string.nm_remote_offline_connected
+                    io.github.nanomuse.sync.RemoteChatBridge.Issue.GONE -> R.string.nm_remote_target_gone
                     io.github.nanomuse.sync.RemoteChatBridge.Issue.ATTACHMENTS -> R.string.nm_remote_attachments
                     io.github.nanomuse.sync.RemoteChatBridge.Issue.BUSY -> R.string.nm_remote_chat_busy
                     io.github.nanomuse.sync.RemoteChatBridge.Issue.FAILED -> R.string.nm_hub_err_generic
@@ -6365,8 +6368,8 @@ class ChatViewModel(
             }
             override fun afterTurn() { nmSendNextQueued() }
         }
-        io.github.nanomuse.sync.RemoteChatBridge(viewModelScope, host) { device, text, id ->
-            io.github.nanomuse.sync.RemoteTaskChat(context, device, text, id)
+        io.github.nanomuse.sync.RemoteChatBridge(viewModelScope, host, io.github.nanomuse.sync.PrefsDeviceTargetStore(context)) { device, text, id, conversation ->
+            io.github.nanomuse.sync.RemoteTaskChat(context, device, text, id, conversation)
         }
     }
 

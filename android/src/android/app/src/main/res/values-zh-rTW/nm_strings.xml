@@ -1196,6 +1196,12 @@
     <string name="nm_remote_no_answer">%1$s 已結束，但沒有回覆。</string>
     <string name="nm_remote_failed">%1$s 未回覆：%2$s</string>
     <string name="nm_remote_offline">%1$s 目前離線。</string>
+    <string name="nm_remote_offline_connected">%1$s 現在不在線上。想改在本機問，點輸入框上方的 ×。</string>
+    <string name="nm_remote_target_gone">%1$s 已不在這個帳號下，這個聊天改回傳給本機。想在本機問，請再傳一次。</string>
+    <string name="nm_device_target_to">傳給 %1$s</string>
+    <string name="nm_device_target_describe">這個聊天的訊息會傳給 %1$s。更換</string>
+    <string name="nm_device_target_this_phone">本機</string>
+    <string name="nm_device_target_back">改回傳給本機</string>
     <string name="nm_remote_chat_busy">請等本次對話執行完畢後再傳送裝置任務。</string>
 
     <string name="nm_reply_unread">未讀回覆</string>

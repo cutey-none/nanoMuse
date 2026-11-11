@@ -1238,6 +1238,12 @@
     <string name="nm_remote_no_answer">%1$s завершило работу без ответа.</string>
     <string name="nm_remote_failed">%1$s не ответило: %2$s</string>
     <string name="nm_remote_offline">%1$s не в сети.</string>
+    <string name="nm_remote_offline_connected">%1$s сейчас не в сети. Чтобы отправить на этот телефон, нажмите × над полем ввода.</string>
+    <string name="nm_remote_target_gone">%1$s больше нет в этом аккаунте, поэтому чат снова отправляет на этот телефон. Отправьте сообщение ещё раз, чтобы спросить здесь.</string>
+    <string name="nm_device_target_to">На %1$s</string>
+    <string name="nm_device_target_describe">Сообщения этого чата уходят на %1$s. Изменить</string>
+    <string name="nm_device_target_this_phone">Этот телефон</string>
+    <string name="nm_device_target_back">Снова отправлять на этот телефон</string>
     <string name="nm_remote_chat_busy">Дождитесь завершения этой беседы перед отправкой задачи устройству.</string>
 
     <string name="nm_reply_unread">Непрочитанный ответ</string>

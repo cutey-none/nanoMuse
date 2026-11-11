@@ -4810,6 +4810,8 @@ fun ChatScreen(
             io.github.nanomuse.ui.chat.ContinueAskHost(viewModel)
             // nanoMuse: the browser handed to the person (a login, a code) — "Your turn", Open, Done.
             io.github.nanomuse.ui.chat.BrowserHandOverHost(viewModel)
+            // nanoMuse: the device this chat is connected to (#907): "To Desk", switch, × for this phone.
+            io.github.nanomuse.ui.chat.DeviceTargetHost(viewModel)
 
             // T-chat-title-pill-edit: reuse SessionEditSheet from the session
             // list (same composable, exposed `internal`) so title + category

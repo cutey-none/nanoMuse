@@ -1203,6 +1203,12 @@
     <string name="nm_remote_no_answer">%1$s 已结束，但没有回复。</string>
     <string name="nm_remote_failed">%1$s 未回复：%2$s</string>
     <string name="nm_remote_offline">%1$s 当前离线。</string>
+    <string name="nm_remote_offline_connected">%1$s 现在不在线。想改在本机问，点输入框上方的 ×。</string>
+    <string name="nm_remote_target_gone">%1$s 已不在这个账号下，这个聊天改回发给本机。想在本机问，请再发一次。</string>
+    <string name="nm_device_target_to">发给 %1$s</string>
+    <string name="nm_device_target_describe">这个聊天的消息会发给 %1$s。更换</string>
+    <string name="nm_device_target_this_phone">本机</string>
+    <string name="nm_device_target_back">改回发给本机</string>
     <string name="nm_remote_chat_busy">请等本次对话执行完毕后再发送设备任务。</string>
 
     <string name="nm_reply_unread">未读回复</string>

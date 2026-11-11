@@ -9,7 +9,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
-class RemoteDeviceTask(private val device: Device, private val text: String, private val language: String, val callId: String) {
+/** [conversation]: the `conversation` the task names on that device (#907, one per connected chat); null leaves it to the device. */
+class RemoteDeviceTask(private val device: Device, private val text: String, private val language: String, val callId: String, private val conversation: String? = null) {
     suspend fun run(
         call: suspend (String, String, String, JSONObject, (JSONObject) -> Unit) -> JSONObject,
         onEvent: suspend (JSONObject) -> Unit,
@@ -22,8 +23,9 @@ class RemoteDeviceTask(private val device: Device, private val text: String, pri
                 val events = Channel<JSONObject>(Channel.UNLIMITED)
                 val consumer = launch { for (event in events) onEvent(event) }
                 try {
-                    val result = call(callId, device.id, "task", JSONObject()
-                        .put("text", text).put("language", language).put("stream", true)) { events.trySend(it) }
+                    val args = JSONObject().put("text", text).put("language", language).put("stream", true)
+                    if (conversation != null) args.put("conversation", conversation)
+                    val result = call(callId, device.id, "task", args) { events.trySend(it) }
                     events.close()
                     consumer.join()
                     result
