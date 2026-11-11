@@ -57,7 +57,7 @@ Codex 会话写入被占用时，运行可携带 `resume_conflict: {process, con
 hub 传递以下请求：
 
 - **直接动作**。包括 `info`、`shell`、`files`、`file.get`、`file.put`、`open`、`screen`、`notify`，用于立即获取信息或执行单项操作。`shell` 命令会在发送前由发起设备判断风险，采用与本地命令相同的规则，即手机 ShellGuard 或桌面 `guard.py`。读取和构建通常直接放行；删除、发送、付款和系统命令则需要在发起设备的审批卡片上确认。
-- **完整任务**。格式为 `task {text, conversation?, language?, stream?}`，把自然语言描述的工作交给目标设备的智能体。任务在目标设备独立的对话中执行，`conversation` 指定对话，省略时使用发起设备 ID。可选 `language` 从运行时 1.0.0 起支持，使用 BCP-47 语言标签表示发起设备的界面语言，目标按它回答，不再从请求文本猜测。
+- **完整任务**。格式为 `task {text, conversation?, language?, stream?}`，把自然语言描述的工作交给目标设备的智能体。任务在目标设备独立的对话中执行，`conversation` 指定对话，省略时使用发起设备 ID。手机上对接了设备的聊天会用自己的名字（`chat-<uuid>`，每个对接的聊天一个），所以两个聊天同时与同一台电脑对话时，在那边不会共用一个对话（见 [every-device.md](every-device.md)）。可选 `language` 从运行时 1.0.0 起支持，使用 BCP-47 语言标签表示发起设备的界面语言，目标按它回答，不再从请求文本猜测。
 
   任务可能需要几分钟。目标智能体遇到需审批的步骤时，会通过 `event {stage:"approval"}` 把问题发回，发起设备显示自己的常用审批界面：手机 RiskGate、桌面终端提示或网页控制台卡片。用户回答再以 `approve {approval_id, allow}` 发回目标设备。
 

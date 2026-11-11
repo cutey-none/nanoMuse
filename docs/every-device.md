@@ -203,6 +203,20 @@ is offered as a target all the same on the web and the desktop and answers
 `device_offline`; the web console is never one. The session a device runs for
 another is kept on that device and is not synced.
 
+**A chat connected to a device.** On Android and the iPhone, a mention also
+connects the chat to that device: a chip above the composer says *To Desk*,
+with a dot for whether it is online, and later messages in that chat go to
+Desk without `@`. A bare `@Desk` connects without sending anything. The chip's
+menu switches to another device or back to *This phone*; × sends here again.
+A connected chat never falls back to this phone's model: when Desk is
+offline the message stays in the box and the chat says how to switch back,
+and when Desk is no longer on the account the chat disconnects and says so.
+The connection is kept per chat on that phone and is not synced. While
+connected, every task names the chat as its `conversation`
+([hub.md](hub.md#what-you-can-say)), so Desk keeps one conversation per chat and a
+follow-up has the earlier turns; switching to another device starts a new one.
+The web console and the desktop keep the one-message mention for now.
+
 ## Whose conversations a device shows
 
 A device can be signed in as one account today and another tomorrow: a

@@ -73,7 +73,9 @@ Two kinds of request travel over the hub:
   the device that asked.
 - **Tasks.** `task {text, conversation?, language?, stream?}`: a whole job in words for the target device's own
   Muse, in a conversation of its own (`conversation` names it; the sender's id
-  when absent). `language` (runtime 1.0.0, optional) is the BCP-47 tag of the
+  when absent). A phone chat connected to a device names itself
+  (`chat-<uuid>`, one per connected chat), so two chats talking to the same
+  computer do not share a conversation there ([every-device.md](every-device.md)). `language` (runtime 1.0.0, optional) is the BCP-47 tag of the
   asking device's screens; the target answers in it instead of guessing from
   the text. It may take minutes. When that Muse hits
   something that needs approval, it does not decide alone: the question travels
