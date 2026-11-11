@@ -60,6 +60,8 @@ struct NanoMuseChatCardsHost: View {
             if naming.card != nil, naming.isBound(to: key) {
                 NanoMuseNamingCardView(vm: vm)
             }
+            // #907: the device this chat is connected to, nearest the composer
+            NanoMuseDeviceTargetChip(vm: vm)
         }
         .padding(.horizontal, 12)
         .padding(.bottom, 6)

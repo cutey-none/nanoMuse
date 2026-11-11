@@ -3,7 +3,8 @@
 //  nanoMuse
 //
 //  Contract C7, rule 8: a message that starts with "@<device name>" is work
-//  for that device. The iOS agent has no `delegate` tool of its own, so the
+//  for that device, and connects the chat to it (#907, NanoMuseDeviceTarget):
+//  later messages go there without the mention until the chip says otherwise. The iOS agent has no `delegate` tool of its own, so the
 //  task goes straight to the device's Muse over the hub (`task`), with the
 //  mention removed, and its answer is shown here as the reply. A step that
 //  Muse must ask about comes back as an `approval` event and is answered
@@ -83,27 +84,59 @@ enum NanoMuseDeviceMention {
     /// does not address a device.
     @MainActor
     static func handle(_ text: String, in vm: AIChatViewModel) -> Bool {
-        guard let hit = parse(text) else { return false }
-        let device = hit.device
-        let task = hit.task.isEmpty ? text : hit.task
+        let key = vm.nmSessionKey
+        let targets = NanoMuseDeviceTargets.shared
+        let device: HubDevice
+        let task: String
+        if let hit = parse(text) {
+            // "@mac …" connects this chat to the Mac (#907); a bare "@mac" only connects.
+            targets.connect(key, to: hit.device)
+            guard !hit.task.isEmpty else {
+                vm.inputText = ""
+                return true
+            }
+            device = hit.device
+            task = hit.task
+        } else if let target = targets.target(for: key) {
+            // A connected chat: the message goes to that device without a mention, never to the
+            // model here, so a device that cannot take it says so instead.
+            let hub = NanoMuseHub.shared
+            if let found = hub.others.first(where: { $0.id == target.id }) {
+                device = found
+                task = text
+            } else if hub.devices.isEmpty {
+                vm.nmLocalTurn(user: text, assistant: String(format: AppLocalized("%@ is not online right now."), target.name))
+                return true
+            } else {
+                targets.disconnect(key)
+                vm.nmLocalTurn(user: text, assistant: String(format: AppLocalized("%@ is no longer on this account, so this chat sends to this phone again. Send the message once more to ask here."), target.name))
+                return true
+            }
+        } else {
+            return false
+        }
         vm.nmLocalTurn(user: text)
         guard device.online else {
-            vm.nmLocalTurn(assistant: String(format: AppLocalized("%@ is not online right now."), device.name))
+            vm.nmLocalTurn(assistant: String(format: AppLocalized("%@ is not online right now. Tap × above the message box to send to this phone instead."), device.name))
             return true
         }
         let notes = Notes()
-        let sessionId = vm.sessionId ?? vm.draftId ?? "draft"
+        let sessionId = key
+        // `language` (runtime 1.0.0, docs/hub.md): the Muse over there answers in this phone's
+        // language instead of guessing from the text; older runtimes ignore it. `stream`: the reply
+        // draws a `text` in place (NanoMuseDeviceReply), so the computer may send a message's text
+        // while its model writes it; others ignore it. `conversation` (#907): the device keeps one
+        // conversation per connected chat instead of one per phone.
+        var args: [String: Any] = ["text": task, "from": NanoMuseHub.shared.name, "language": NanoMuseLocale.tag, "stream": true]
+        if let conversation = targets.target(for: key)?.conversation { args["conversation"] = conversation }
+        let callArgs = args
         let live = NanoMuseDeviceReply(device: device, vm: vm)
         Task { @MainActor in
             do {
                 let reply = try await NanoMuseHub.shared.call(
                     to: device.id,
                     action: "task",
-                    // `language` (runtime 1.0.0, docs/hub.md): the Muse over there answers in
-                    // this phone's language instead of guessing from the text; older runtimes ignore it.
-                    // `stream`: the reply draws a `text` in place (NanoMuseDeviceReply), so the
-                    // computer may send a message's text while its model writes it; others ignore it.
-                    args: ["text": task, "from": NanoMuseHub.shared.name, "language": NanoMuseLocale.tag, "stream": true],
+                    args: callArgs,
                     timeout: taskTimeout,
                     id: live.callId
                 ) { body in

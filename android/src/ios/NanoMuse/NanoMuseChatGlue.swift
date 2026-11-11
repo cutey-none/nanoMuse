@@ -48,7 +48,8 @@ extension AIChatViewModel {
         guard !text.isEmpty else { return false }
         if NanoMuseAvatarFlow.shared.handle(text, in: self) { return true }
         if NanoMuseFirstConversation.shared.handle(text, in: self) { return true }
-        // C7: "@Pixel 8 open the calendar" — the task runs on that device, its answer comes back here.
+        // C7: "@Pixel 8 open the calendar" — the task runs on that device, its answer comes back here;
+        // the chat stays connected to it, and later messages go there too (#907).
         if NanoMuseDeviceMention.handle(text, in: self) { return true }
         return false
     }
@@ -88,6 +89,7 @@ extension AIChatViewModel {
         NanoMuseSessionAddenda.rebind(from: draft, to: real)
         NanoMuseFirstConversation.shared.rebind(from: draft, to: real)
         NanoMuseAvatarFlow.shared.rebind(from: draft, to: real)
+        NanoMuseDeviceTargets.shared.rebind(from: draft, to: real)
     }
 
     // MARK: Helpers

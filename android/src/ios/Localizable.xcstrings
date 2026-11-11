@@ -161443,6 +161443,360 @@
           }
         }
       }
+    },
+    "This phone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This phone"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本机"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本機"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Telefon"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este teléfono"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce téléphone"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このスマートフォン"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 휴대폰"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот телефон"
+          }
+        }
+      }
+    },
+    "To %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发给 %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "傳給 %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ へ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@에게"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На %@"
+          }
+        }
+      }
+    },
+    "Messages in this chat go to %@. Change" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Messages in this chat go to %@. Change"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个聊天的消息会发给 %@。更换"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "這個聊天的訊息會傳給 %@。更換"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nachrichten in diesem Chat gehen an %@. Ändern"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los mensajes de este chat van a %@. Cambiar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les messages de cette discussion vont à %@. Changer"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このチャットのメッセージは %@ に送られます。変更"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 채팅의 메시지는 %@(으)로 갑니다. 변경"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сообщения этого чата уходят на %@. Изменить"
+          }
+        }
+      }
+    },
+    "Send to this phone again" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Send to this phone again"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "改回发给本机"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "改回傳給本機"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wieder an dieses Telefon senden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a enviar a este teléfono"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Envoyer de nouveau à ce téléphone"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このスマートフォンに戻す"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다시 이 휴대폰으로 보내기"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Снова отправлять на этот телефон"
+          }
+        }
+      }
+    },
+    "%@ is no longer on this account, so this chat sends to this phone again. Send the message once more to ask here." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is no longer on this account, so this chat sends to this phone again. Send the message once more to ask here."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 已不在这个账号下，这个聊天改回发给本机。想在本机问，请再发一次。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 已不在這個帳號下，這個聊天改回傳給本機。想在本機問，請再傳一次。"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ gehört nicht mehr zu diesem Konto, daher sendet dieser Chat wieder an dieses Telefon. Sende die Nachricht noch einmal, um hier zu fragen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ya no está en esta cuenta, así que este chat vuelve a enviar a este teléfono. Envía el mensaje otra vez para preguntar aquí."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ n’est plus sur ce compte, cette discussion envoie donc de nouveau à ce téléphone. Renvoie le message pour demander ici."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ はこのアカウントにもうないため、このチャットはこのスマートフォンに送るように戻りました。ここで聞くにはもう一度送ってください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은(는) 더 이상 이 계정에 없어서 이 채팅은 다시 이 휴대폰으로 보냅니다. 여기서 물어보려면 메시지를 한 번 더 보내세요."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ больше нет в этом аккаунте, поэтому чат снова отправляет на этот телефон. Отправьте сообщение ещё раз, чтобы спросить здесь."
+          }
+        }
+      }
+    },
+    "%@ is not online right now. Tap × above the message box to send to this phone instead." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is not online right now. Tap × above the message box to send to this phone instead."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 现在不在线。想改在本机问，点输入框上方的 ×。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 現在不在線上。想改在本機問，點輸入框上方的 ×。"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ ist gerade nicht online. Tippe auf × über dem Eingabefeld, um stattdessen an dieses Telefon zu senden."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ no está en línea ahora mismo. Toca × encima del cuadro de mensaje para enviar a este teléfono."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ n’est pas en ligne pour le moment. Touche × au-dessus du champ de message pour envoyer à ce téléphone."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ は今オンラインではありません。このスマートフォンに送るには、入力欄の上の × をタップしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@은(는) 지금 온라인이 아닙니다. 이 휴대폰으로 보내려면 입력창 위의 ×를 누르세요."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ сейчас не в сети. Чтобы отправить на этот телефон, нажмите × над полем ввода."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
